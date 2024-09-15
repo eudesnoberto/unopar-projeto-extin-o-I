@@ -1,115 +1,66 @@
-Sistema de Comunicação da Associação de Moradores
+Este projeto visa desenvolver uma plataforma digital para melhorar a comunicação e a gestão dentro da associação do bairro Loteamento Conceição, na cidade de Moreno. O sistema proposto permitirá aos moradores acessar serviços comunitários, interagir com a administração e participar de eventos de forma mais eficiente.
 
-Este projeto é um sistema básico de comunicação para uma associação de moradores, desenvolvido com PHP, MySQL, JavaScript e CSS. O sistema permite o cadastro de moradores, login, visualização de avisos e uma área administrativa para o presidente do bairro publicar avisos para a comunidade.
+Descrição do Projeto
+O sistema foi projetado para atender às seguintes necessidades da comunidade:
 
-Funcionalidades
-Cadastro de Moradores: Moradores podem se cadastrar com seu nome, e-mail e senha.
-Login: O sistema possui autenticação de usuários (morador e admin).
-Visualização de Avisos: Os moradores podem visualizar os avisos publicados.
-Área Administrativa: O presidente do bairro (admin) pode publicar novos avisos para a comunidade.
-Avisos em Tempo Real: Todos os avisos ficam disponíveis em uma área pública para os moradores cadastrados.
-
+Agendamento de Comprovantes de Residência: Permite que os moradores agendem horários para obter comprovantes de residência.
+Requisição de Espaço Comunitário: Facilita a solicitação do uso do espaço comunitário para eventos.
+Notificações e Avisos: Mantém os moradores informados sobre eventos e atualidades.
+Registro de Reclamações e Sugestões: Oferece um canal para registrar e gerenciar reclamações e sugestões.
+Calendário de Atividades Comunitárias: Disponibiliza um calendário para eventos e atividades da comunidade.
+Informações sobre Serviços Locais: Fornece informações sobre serviços locais como escolas e centros de saúde.
+Gerenciamento de Manutenção de Áreas Comuns: Ajuda na gestão e acompanhamento da manutenção das áreas comuns.
+Funcionalidades Futuras
+Envio de Notificações por E-mail: Implementar um sistema para enviar e-mails automáticos de notificações e atualizações.
+Módulo de Gestão de Manutenção de Áreas Comuns: Adicionar funcionalidades para melhorar a gestão da manutenção das áreas comuns.
 Tecnologias Utilizadas
-Backend: PHP 7+
+Backend: PHP
 Banco de Dados: MySQL
 Frontend: HTML, CSS, JavaScript
-Estilo: CSS básico
-Autenticação: Senhas criptografadas usando password_hash()
-
-Requisitos
-PHP 7.0 ou superior
-MySQL 5.7 ou superior
-Servidor Web (Apache, Nginx, etc.)
-Navegador para acessar a aplicação
-
-Instalação
-Clone o repositório:
-git clone https://github.com/eudesnoberto/unopar-projeto-extin-o-I.git
-
-Crie o banco de dados MySQL:
-
-Acesse o MySQL e execute o seguinte script para criar o banco de dados e as tabelas:
-
-CREATE DATABASE associacao;
-USE associacao;
-
-CREATE DATABASE associacao;
-USE associacao;
-
-CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    senha VARCHAR(100) NOT NULL,
-    tipo ENUM('morador', 'admin') DEFAULT 'morador'
-);
-
-CREATE TABLE avisos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    mensagem TEXT NOT NULL,
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE agendamentos_comprovantes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
-    data_comprovante DATE NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
-
-CREATE TABLE requisicoes_espaco (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,
-    data_evento DATE NOT NULL,
-    descricao_evento TEXT NOT NULL,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
-
-
-Configuração de Conexão com o Banco de Dados:
-
-No arquivo db.php, configure as credenciais de acesso ao banco de dados:
-
-$host = 'localhost';
-$db = 'associacao';
-$user = 'root';
-$pass = '';
-
-Inicie o Servidor Web:
-Se estiver usando o PHP built-in server, execute o seguinte comando na raiz do projeto:
-php -S localhost:8000
-Acesse o sistema em http://localhost:8000.
-
-Criar um usuário administrador (presidente do bairro):
-
-Após instalar o sistema, você pode inserir manualmente um usuário administrador na tabela usuarios com o tipo admin.
-
-Exemplo de SQL para criar o administrador:
-INSERT INTO usuarios (nome, email, senha, tipo) VALUES ('Presidente', 'admin@exemplo.com', MD5('senha123'), 'admin');
-
-Como Usar
-Cadastro: Moradores podem se cadastrar na página de cadastro com seu nome, e-mail e senha.
-Login: Use suas credenciais para acessar o painel.
-Painel do Morador: Visualize os avisos da comunidade.
-Administração: O presidente do bairro (admin) pode publicar novos avisos na área administrativa.
 Estrutura do Projeto
-db.php: Arquivo de configuração do banco de dados.
-register.php: Página de cadastro de novos moradores.
-login.php: Página de login para moradores e admin.
-dashboard.php: Painel do usuário, onde os avisos são exibidos.
-admin.php: Página de administração onde o presidente do bairro pode publicar avisos.
-style.css: Arquivo de estilo para a interface do sistema.
-Melhorias Futuras
-Implementar envio de notificações por e-mail.
-Adicionar funcionalidades de upload de arquivos (como atas de reuniões).
-Melhorar a interface gráfica com frameworks como Bootstrap.
-Adicionar relatórios de uso para administradores.
+config.php: Configuração do banco de dados.
+register.php: Cadastro de novos usuários.
+login.php: Autenticação de usuários.
+dashboard.php: Página principal após o login.
+logout.php: Logout dos usuários.
+login.html: Formulário de login.
+register.html: Formulário de cadastro.
+styles.css: Folha de estilos para o frontend.
+Como Rodar o Projeto
+Clone o Repositório
+
+bash
+Copiar código
+git clone https://github.com/eudesnoberto/unopar-projeto-extin-o-I.git
+Configuração do Banco de Dados
+
+Crie um banco de dados MySQL chamado comunidade.
+Execute o script SQL incluído em db_setup.sql para criar as tabelas necessárias.
+Configuração do Ambiente
+
+Instale um servidor local como XAMPP ou MAMP.
+Coloque os arquivos do projeto na pasta htdocs (para XAMPP) ou Sites (para MAMP).
+Configuração do Banco de Dados no PHP
+
+Edite o arquivo config.php para ajustar as credenciais do banco de dados.
+Acesse o Projeto
+
+Abra o navegador e vá para http://localhost/nome-do-projeto/login.html para acessar a página de login.
 Contribuição
-Sinta-se à vontade para enviar pull requests ou sugerir melhorias. Toda ajuda é bem-vinda!
+Contribuições são bem-vindas! Se você deseja colaborar com o projeto, por favor, siga estas etapas:
 
+Faça um fork do repositório.
+Crie uma nova branch (git checkout -b feature/nova-funcionalidade).
+Faça suas modificações e commit (git commit -am 'Adiciona nova funcionalidade').
+Envie para o repositório (git push origin feature/nova-funcionalidade).
+Crie um Pull Request.
+Contato
+Para mais informações ou perguntas, entre em contato com o mantenedor do projeto:
+
+Nome: Eudes Noberto
+Email: eudes@example.com
 Licença
-Este projeto está sob a licença MIT. Sinta-se à vontade para utilizá-lo e modificá-lo de acordo com suas necessidades.
+Este projeto está licenciado sob a Licença MIT.
 
-Autor: Eudes Alves
-Contato: eudes.sna@gmail.com
+Links
+Repositório GitHub: https://github.com/eudesnoberto/unopar-projeto-extin-o-I
