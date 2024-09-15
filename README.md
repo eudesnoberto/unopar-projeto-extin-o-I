@@ -58,7 +58,7 @@ Contato
 Para mais informações ou perguntas, entre em contato com o mantenedor do projeto:
 
 Nome: Eudes Noberto
-Email: eudes@example.com
+Email: eudes.sna@gmail.com
 Licença
 Este projeto está licenciado sob a Licença MIT.
 
