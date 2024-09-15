@@ -1,42 +1,28 @@
 <?php
-include 'db.php';
-session_start();
+include 'config.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
-    $stmt->execute([$email]);
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sql = "SELECT * FROM usuarios WHERE email='$email'";
+    $result = $conn->query($sql);
 
-    if ($usuario && password_verify($senha, $usuario['senha'])) {
-        $_SESSION['usuario_id'] = $usuario['id'];
-        $_SESSION['usuario_tipo'] = $usuario['tipo'];
-        header('Location: dashboard.php');
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($senha, $row['senha'])) {
+            session_start();
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_name'] = $row['nome'];
+            $_SESSION['user_type'] = $row['tipo'];
+            header("Location: dashboard.php");
+        } else {
+            echo "Senha incorreta";
+        }
     } else {
-        $error = "Credenciais inválidas";
+        echo "Nenhum usuário encontrado com este e-mail";
     }
+
+    $conn->close();
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br>
-        <input type="submit" value="Login">
-    </form>
-    <?php if (isset($error)) echo "<p>$error</p>"; ?>
-    <a href="register.php">Não tem uma conta? Cadastre-se</a>
-</body>
-</html>
