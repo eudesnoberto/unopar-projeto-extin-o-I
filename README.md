@@ -33,6 +33,9 @@ Acesse o MySQL e execute o seguinte script para criar o banco de dados e as tabe
 CREATE DATABASE associacao;
 USE associacao;
 
+CREATE DATABASE associacao;
+USE associacao;
+
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -47,6 +50,22 @@ CREATE TABLE avisos (
     mensagem TEXT NOT NULL,
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE agendamentos_comprovantes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    data_comprovante DATE NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE requisicoes_espaco (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    data_evento DATE NOT NULL,
+    descricao_evento TEXT NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
 
 Configuração de Conexão com o Banco de Dados:
 
