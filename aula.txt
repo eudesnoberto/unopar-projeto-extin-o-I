@@ -1,0 +1,23 @@
+I - Algoritmos e Programação
+Algoritmos: Foram utilizados para desenvolver a lógica de funcionamento do sistema, como a verificação de disponibilidade de horários para agendamentos e a lógica para a requisição de espaço comunitário.
+Programação: O sistema foi desenvolvido em PHP para o backend, com JavaScript para interatividade no frontend e CSS para a estilização das páginas.
+II - Estruturas de Dados
+Estruturas de Dados: Foram usadas para organizar e manipular dados no banco de dados e na aplicação. Por exemplo, a estrutura de tabelas no MySQL foi usada para armazenar informações de usuários, avisos, agendamentos e requisições. No código, arrays e listas foram utilizados para processar e exibir dados.
+III - Orientação a Objetos
+Programação Orientada a Objetos: No desenvolvimento com PHP, conceitos de orientação a objetos foram usados para criar classes que encapsulam a lógica de manipulação de dados e operações. Isso ajudou a manter o código modular e mais fácil de manter.
+IV - Banco de Dados
+Banco de Dados: O MySQL foi usado para criar e gerenciar o banco de dados do sistema. As tabelas foram projetadas para armazenar dados sobre usuários, avisos, agendamentos e requisições. Consultas SQL foram empregadas para interagir com o banco de dados, inserir, atualizar e recuperar informações.
+V - Lógica Matemática e Teoria dos Conjuntos
+Lógica Matemática: Aplicada na validação de dados e na implementação de regras de negócios. Por exemplo, a lógica foi usada para verificar a disponibilidade de datas para agendamentos e validar entradas dos usuários.
+Teoria dos Conjuntos: Utilizada para combinar e filtrar dados, como encontrar datas disponíveis para eventos e verificar se um horário específico já foi reservado.
+VI - Princípios de Estatística e Análise de Dados
+Análise de Dados: Embora o sistema não tenha uma funcionalidade complexa de análise de dados, princípios de estatística foram usados para garantir que a coleta e apresentação de dados fossem eficazes. A análise de feedback dos usuários ajudou a identificar áreas de melhoria e ajustar funcionalidades futuras.
+Aplicação no Projeto
+Durante o desenvolvimento do sistema, a aplicação desses conceitos garantiu que o projeto fosse bem estruturado e eficaz. Por exemplo:
+
+Algoritmos e programação ajudaram a implementar funcionalidades como agendamentos e requisições de espaço.
+Estruturas de dados e banco de dados foram fundamentais para o armazenamento e manipulação de informações.
+Orientação a objetos facilitou a organização do código e a manutenção do sistema.
+Lógica matemática e teoria dos conjuntos foram aplicadas para garantir a precisão e eficiência das operações.
+Princípios de estatística ajudaram a analisar o feedback dos usuários e planejar futuras melhorias.
+Esses conhecimentos foram essenciais para criar um sistema que atenda às necessidades da comunidade e permita a implementação de futuras funcionalidades com eficácia.
